@@ -95,8 +95,11 @@
 // }
 import java.util.Scanner;
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public class TakoyakiCardGame {
+public class Takoyaki {
 
     static class Card {
         String type;
