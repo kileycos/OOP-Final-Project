@@ -93,9 +93,11 @@
 //         return false;
 //     }
 // }
-import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
 
 public class TakoyakiCardGame {
+
     static class Card {
         String type;
         int value;
