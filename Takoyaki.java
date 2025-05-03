@@ -69,32 +69,6 @@ public class Takoyaki {
     }
 
     private static List<Card> createDeck() {
-    List<Card> deck = new ArrayList<>();
-    String[] types = {"Regular", "Special", "Bonus"};
-    Random random = new Random();
-
-    for (String type : types) {
-        for (int i = 1; i <= 10; i++) { // Card values 1-10
-            deck.add(new Card(type, random.nextInt(20) + 1)); // Random values for cards
-        }
-    }
-    return deck;
-}
-
-private static void distributeCards(List<Card> deck, List<Card> playerHand, List<Card> computerHand) {
-    for (int i = 0; i < 5; i++) { // Distribute 5 cards each
-        playerHand.add(deck.remove(0));
-        computerHand.add(deck.remove(0));
-    }
-}
-
-private static void printHand(List<Card> hand) {
-    for (int i = 0; i < hand.size(); i++) {
-        System.out.println(i + ": " + hand.get(i));
-    }
-}
-
-    private static List<Card> createDeck() {
         List<Card> deck = new ArrayList<>();
         String[] types = {"Regular", "Special", "Bonus"};
         Random random = new Random();
@@ -108,7 +82,7 @@ private static void printHand(List<Card> hand) {
     }
 
     private static void distributeCards(List<Card> deck, List<Card> playerHand, List<Card> computerHand) {
-        for (int i = 0; i < 5; i++) { // Distribute 5 cards each
+        for (int i = 0; i < 5; i++) { // Deal 5 cards each
             playerHand.add(deck.remove(0));
             computerHand.add(deck.remove(0));
         }
