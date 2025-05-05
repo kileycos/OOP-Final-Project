@@ -1,34 +1,19 @@
 import java.util.*;
 
 public class Trash {
-    // Represents cards with a numerical value
-    static class Card {
-        String type;
-        int value;
 
-        public Card(String type, int value) {
-            this.type = type;
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return type + " (" + value + ")";
-        }
+    public Trash(){
     }
 
-    static List<Integer> leaderboard = new ArrayList<>();
-    static double playerMoney = 200; // Player starts with $200
-
-    public static void main(String[] args) {
+    public double playTrash(double money){
         Scanner scanner = new Scanner(System.in);
 
-        while (playerMoney >= 50) { // Must have at least $50 to play
+        while (playerMoney >= 50) {
             System.out.println("\nYou have $" + playerMoney);
             System.out.println("Enter your bet (must be <= your balance, min $50 to play):");
             double betAmount = getValidBet(scanner, playerMoney);
 
-            playerMoney -= 50; // Take the entry fee
+            playerMoney -= 50; 
             System.out.println("Entry fee paid! You have $" + playerMoney + " left.");
 
             System.out.println("Choose a board size (10 or 12):");
@@ -64,7 +49,6 @@ public class Trash {
                     System.out.println("Discard pile: " + (discardPile.isEmpty() ? "Empty" : discardPile.get(discardPile.size() - 1)));
                     printBoard(playerBoard);
 
-                    // Player's turn
                     Card drawnCard = deck.remove(0);
                     System.out.println("\nYou drew: " + drawnCard);
 
@@ -82,7 +66,6 @@ public class Trash {
                         }
                     }
 
-                    // Computer's turn (now **visible**)
                     if (!deck.isEmpty()) {
                         Card computerCard = deck.remove(0);
                         System.out.println("\nComputer's Turn...");
@@ -130,7 +113,26 @@ public class Trash {
 
         System.out.println("Thanks for playing! See you next time!");
         scanner.close();
+        return money;
     }
+        
+    static class Card {
+        String type;
+        int value;
+
+        public Card(String type, int value) {
+            this.type = type;
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return type + " (" + value + ")";
+        }
+    }
+
+    static List<Integer> leaderboard = new ArrayList<>();
+    static double playerMoney = 200;
 
     private static List<Card> createDeck() {
         List<Card> deck = new ArrayList<>();

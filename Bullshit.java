@@ -14,11 +14,19 @@ public class Bullshit{
         turn = new takingTurn();
     }
 
-    public void play() {
+    public double playBullshit(double money) {
         myDeck.buildDeck("My Deck");
         myDeck.shuffle(myDeck.getCards());
         myDeck.deal(myDeck.getCards());
         allHands = myDeck.getAllHands();
+
+        System.out.print("Enter your bet amount: ");
+        double bet = scan.nextDouble();
+
+        if(bet > money || bet <= 0){
+            System.out.println("invalid bet. Returning to menu...");
+            return money;
+        }
 
         myDeck.printPlayerHand();
 
@@ -73,14 +81,21 @@ public class Bullshit{
             if (allHands.get(i).isEmpty()) {
                 if (i == 3) {
                     System.out.println("Congrats, you win!");
+                    System.out.println("You get $" + bet);
+                    money += bet;
                 } else {
                     System.out.println("Sorry, you lost");
                     System.out.println("Bot " + (i + 1) + " wins");
                     System.out.println("Better luck next time");
+                    System.out.println("You lost $" + bet);
+                    money -= bet;
                 }
             }
         }
+
         scan.close();
+        System.out.println("Your new balance: $" + money);
+        return money;
     }
 }
 

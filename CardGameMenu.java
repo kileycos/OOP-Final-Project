@@ -11,7 +11,7 @@ public class CardGameMenu {
         while (money > 0) {
             System.out.println("\nMenu:");
             System.out.println("1. Play Blackjack");
-            System.out.println("2. Play Card Game 2");
+            System.out.println("2. Play Bullshit");
             System.out.println("3. Play Trash");
             System.out.println("4. Quit");
             System.out.print("Choose an option: ");
@@ -22,11 +22,13 @@ public class CardGameMenu {
                 break;
             } else if (choice == 1) {
                 money = Blackjack.playBlackjack(money);
-            }else if (choice == 2){
-                money = CardGame2.playCardGame2(double money);
+            } else if (choice == 2){
+                Bullshit play = new Bullshit();
+                money = play.playBullshit(money);
             }
             else if (choice == 3) {
-                money = Trash.playTrashCardGame(double money);
+                Trash play = new Trash();
+                money = play.playTrash(money);
             }else{
                 System.out.println("Invalid choice. Try again.");
             }
