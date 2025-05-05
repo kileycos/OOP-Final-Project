@@ -23,10 +23,10 @@ public class CardGameMenu {
             } else if (choice == 1) {
                 money = Blackjack.playBlackjack(money);
             }else if (choice == 2){
-                money = CardGame2.playCardGame2(money);
+                money = CardGame2.playCardGame2(double money);
             }
             else if (choice == 3) {
-                money = Trash.playTrashCardGame(money);
+                money = Trash.playTrashCardGame(double money);
             }else{
                 System.out.println("Invalid choice. Try again.");
             }

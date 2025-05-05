@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Blackjack {
-    public static void playBlackjack(double money) {
+    public static double playBlackjack(double money) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
@@ -11,7 +11,7 @@ public class Blackjack {
 
         if (bet > money || bet <= 0) {
             System.out.println("Invalid bet. Returning to menu...");
-            return;
+            return money;
         }
 
         int playerCard1 = random.nextInt(10) + 2;
@@ -58,5 +58,6 @@ public class Blackjack {
         }
 
         System.out.println("Your new balance: $" + money);
+        return money;
     }
 }
