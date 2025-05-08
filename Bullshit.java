@@ -93,7 +93,7 @@ public class Bullshit{
             }
         }
 
-        scan.close();
+        //scan.close();
         System.out.println("Your new balance: $" + money);
         return money;
     }
@@ -321,7 +321,7 @@ class takingTurn {
             scan.next();
         }
         int index = scan.nextInt();
-        while (index < 0 || index >= size) {
+        while (index < 1 || index >= size) {
             System.out.print("Invalid index. Try again: ");
             index = scan.nextInt();
         }
